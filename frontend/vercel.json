@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "https://niftyagent-6cvd.onrender.com/$1" }
+  ]
+}
