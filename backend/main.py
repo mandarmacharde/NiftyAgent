@@ -8,6 +8,7 @@ from zoneinfo import ZoneInfo
 IST = ZoneInfo("Asia/Kolkata")
 
 from fastapi import FastAPI, HTTPException, WebSocket, WebSocketDisconnect, Query
+from fastapi.middleware.cors import CORSMiddleware
 from services.market_data import get_chart_data, get_india_vix_data, get_nifty_data
 from agents.market_agent import analyze_market
 from agents.reflection_agent import reflect_trade
@@ -40,6 +41,14 @@ from services.option_pricing import calc_option_price
 
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://niftyagent.qzz.io", "https://nifty-agent-1ax4g6jk9-mandar-machardes-projects.vercel.app"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 _last_tick = {"price": 0, "time": 0, "open": 0, "high": 0, "low": 0, "volume": 0}
 
