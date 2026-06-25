@@ -1,6 +1,10 @@
 const BASE_URL = '/api'
-const WS_URL = `${window.location.protocol === 'https:' ? 'wss:' : 'ws:'}//${window.location.host}/api/ws/market`
-const CHART_WS_URL = `${window.location.protocol === 'https:' ? 'wss:' : 'ws:'}//${window.location.host}/api/ws/chart`
+const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+const WS_BASE = isLocal
+  ? `${window.location.protocol === 'https:' ? 'wss:' : 'ws:'}//${window.location.host}/api`
+  : 'wss://niftyagent-6cvd.onrender.com'
+const WS_URL = `${WS_BASE}/ws/market`
+const CHART_WS_URL = `${WS_BASE}/ws/chart`
 
 async function request(path, options = {}) {
   const res = await fetch(`${BASE_URL}${path}`, {

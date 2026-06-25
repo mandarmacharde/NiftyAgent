@@ -2,7 +2,7 @@ name: Keep Alive
 
 on:
   schedule:
-    - cron: '*/10 * * * *'
+    - cron: '*/30 * * * *'
   workflow_dispatch:
 
 jobs:
@@ -10,4 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Ping backend
-        run: curl -s https://niftyagent-6cvd.onrender.com/ > /dev/null
+        run: curl -sSf -o /dev/null --connect-timeout 10 https://niftyagent-6cvd.onrender.com/ || echo "Ping failed"

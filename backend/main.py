@@ -44,7 +44,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://niftyagent.qzz.io", "https://nifty-agent-1ax4g6jk9-mandar-machardes-projects.vercel.app"],
+    allow_origins=["https://niftyagent.qzz.io", "https://nifty-agent-1ax4g6jk9-mandar-machardes-projects.vercel.app", "https://niftyagent.vercel.app", "https://niftyagent-6cvd.onrender.com"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
