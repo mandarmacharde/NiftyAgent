@@ -152,7 +152,3 @@ All parameters are hardcoded (no config files yet):
 | Max open trades | 3 | `risk_agent.py` |
 | Min premium | Rs. 10 | `risk_agent.py` |
 | Confidence threshold | 60% | `trader_agent.py` |
-
-## License
-
-MIT
